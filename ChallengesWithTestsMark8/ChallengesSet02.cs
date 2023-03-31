@@ -6,7 +6,7 @@ namespace ChallengesWithTestsMark8
 {
     public class ChallengesSet02
     {
-        public bool CharacterIsALetter(char c)
+        public bool CharacterIsALetter(char c) // => char.IsLetter(c);
         {
             if (char.IsLetter(c))
             {
@@ -16,6 +16,8 @@ namespace ChallengesWithTestsMark8
             {
                 return false;
             }
+            // return char.IsLetter(c);
+            
         }
 
         public bool CountOfElementsIsEven(string[] vals)
@@ -29,6 +31,8 @@ namespace ChallengesWithTestsMark8
             {
                 return false;
             }
+
+            // return (vals.Length % 2 == 0);
         }
 
         public bool IsNumberEven(int number)
@@ -42,6 +46,8 @@ namespace ChallengesWithTestsMark8
             {
                 return false;
             }
+
+            // return (number % 2 == 0);
         }
 
         public bool IsNumberOdd(int num)
@@ -55,6 +61,7 @@ namespace ChallengesWithTestsMark8
             {
                 return false;
             }
+            // return (Math.Abs(num) % 2 == 1);
         }
 
         public double SumOfMinAndMax(IEnumerable<double> numbers)
@@ -130,6 +137,8 @@ namespace ChallengesWithTestsMark8
                 }
             }
             return evenSum;
+
+            // return numbers?.Where(x => num % 2 == 0).Sum() ?? 0;
         }
 
         public bool IsSumOdd(List<int> numbers)
@@ -146,6 +155,8 @@ namespace ChallengesWithTestsMark8
             }
 
             return oddSum;
+
+            // return (number == null) ? false : (numbers.Sum() % 2 != 0)
         }
 
         public long CountOfPositiveOddsBelowNumber(long number)
