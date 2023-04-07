@@ -57,22 +57,83 @@ namespace ChallengesWithTestsMark8
 
         public bool IsStringANumber(string input)
         {
-            throw new NotImplementedException();
+            bool tOrF = true;
+            var test = (double.TryParse(input, out double num)) ? tOrF = true : tOrF = false;
+            return tOrF;            
         }
 
         public bool MajorityOfElementsInArrayAreNull(object[] objs)
         {
-            throw new NotImplementedException();
+            int isNull = 0;
+            int notNull = 0;
+
+            foreach (var item in objs)
+            {
+                int counter = (item == null) ? (isNull += 1) : (notNull += 1);
+            }
+
+            if (isNull > notNull)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
         }
 
         public double AverageEvens(int[] numbers)
         {
-            throw new NotImplementedException();
+            double evenCount = 0.0;
+            double evenSum = 0.0;
+
+            if (numbers != null)
+            {
+                foreach (var num in numbers)
+                {
+                    var evenNums = (num % 2 == 0) ? evenSum += num : evenSum += 0;
+                    var evenCounter = (num % 2 == 0) ? evenCount += 1 : evenCount += 0;
+
+                }
+                if (evenSum == 0.0 || evenCount == 0.0)
+                {
+                    return 0;
+                }
+
+                else
+                {
+                    return evenSum / evenCount;
+                }
+            }
+            
+            else
+            {
+                return 0;
+            }
         }
 
         public int Factorial(int number)
         {
-            throw new NotImplementedException();
+            if (number == 0)
+            {
+                return 1;
+            }
+
+            else if(number < 0)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+
+            else
+            {
+                int factorial = 1;
+                for (int i = number; i > 0; i--)
+                {
+                    factorial *= i;
+                }
+                return factorial;
+            }
         }
     }
 }

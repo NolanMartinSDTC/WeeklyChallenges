@@ -37,6 +37,8 @@ namespace ChallengesWithTestsMark8
             }
             
             return (Math.Abs(oddSum) % 2 == 1);
+
+            // return (numbers == null) ? false : (numbers.Where(x => x%2 != 0).Sum() % 2 != 0);
         }
 
         public bool PasswordContainsUpperLowerAndNumber(string password)
