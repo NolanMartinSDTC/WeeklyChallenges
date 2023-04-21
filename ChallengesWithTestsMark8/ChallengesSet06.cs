@@ -10,12 +10,20 @@ namespace ChallengesWithTestsMark8
         {
             bool contWord = false;
 
+            // if (string.Equals(words, null) || words.Contains(null))
+            //{
+            //return false;
+            //}
+
             if(words == null)
             {
                 return contWord;
             }
+
             else if(ignoreCase == false)
             {
+                // containsWord = words.Contains(word)
+
                 foreach (string actualWord in words)
                 {
                     if (actualWord == word)
@@ -26,6 +34,11 @@ namespace ChallengesWithTestsMark8
             }
             else
             {
+                // word = word.ToLower();
+                // List<string> lc = words.Select(x => x.ToLower()).ToList();
+                // containsWord = lc.Contains(word)
+                
+
                 foreach (string actualWord in words)
                 {
                     if (actualWord != null)
@@ -39,6 +52,8 @@ namespace ChallengesWithTestsMark8
             }
 
             return contWord;
+
+            // return (ignoreCase) ? words?.Select(x=>x?.ToLower()).Contains(word) ?? false : words?.Contains(word) ?? false;
             
         }
 
@@ -64,42 +79,78 @@ namespace ChallengesWithTestsMark8
                 return false;
             }
 
+            // return (num <= 1) ? false : Enumerable.Range(2, (int)Math.Sqrt(num) - 1).All(divisor => num % divisor ! = 0);
         }
 
         public int IndexOfLastUniqueLetter(string str)
         {
-            foreach (char let in str)
-            {
-                int charCount = 0;
+            //int index = -1;
+            //bool uIndex;
 
-            }
-            throw new NotImplementedException();
+            //for (var i = 0; i < str.Length; i++)
+            //{
+            //    uIndex = true;
+
+            //    for (var j = 0; j < str.Length; j++)
+            //    {
+            //        if (str[i] == str[j] && i != j)
+            //        {
+            //            uIndex = false;
+            //        }
+            //    }
+
+            //    if (uIndex == true)
+            //    {
+            //        index = i;
+            //    }
+            //}
+
+            //return index;
+            return str.IndexOf(str.Distinct().Reverse().Where(x => str.Where(y => y.Equals(x)).Count() == 1).FirstOrDefault());
+
         }
 
         public int MaxConsecutiveCount(int[] numbers)
         {
-            int maxCount = 0;
-            for (int i = 0; i < numbers.Length; i++)
-            {
-                int tempCount = 1;
-                for (int j = i + 1; j < numbers.Length; j++)
-                {
-                    if (numbers[i] == numbers[j])
-                    {
-                        tempCount += 1;
-                        if (tempCount > maxCount)
-                        {
-                            maxCount = tempCount;
-                        }
-                    }
-                    //else
-                    //{
-                    //    tempCount = 0;
-                    //}
-                }
+            //int maxCount = 0;
+            //for (int i = 0; i < numbers.Length; i++)
+            //{
+            //    int tempCount = 1;
+            //    for (int j = i + 1; j < numbers.Length; j++)
+            //    {
+            //        if (numbers[i] == numbers[j])
+            //        {
+            //            tempCount += 1;
+            //            if (tempCount > maxCount)
+            //            {
+            //                maxCount = tempCount;
+            //            }
+            //        }
+            //    }
 
+            //}
+            //return maxCount;
+
+            int count = 0;
+            for (var i = 0; i < numbers.Length; i++)
+            {
+                int currentCount = 1;
+                for (var j = i + 1; j < numbers.Length; j++)
+                {
+                    if (numbers[i] != numbers[j])
+                    {
+                        break;
+                    }
+
+                    currentCount++;
+                }
+                if (currentCount > count)
+                {
+                    count = currentCount;
+                }
             }
-            return maxCount;
+
+            return count;
             
         }
 
