@@ -14,6 +14,7 @@ namespace ChallengesWithTestsMark8
                 startNumber += 1;
             }
             return startNumber;
+            // return ((startNumber / n) + 1) * n;
         }
 
         public void ChangeNamesOfBusinessesWithNoRevenueTo_CLOSED(Business[] businesses)
@@ -25,6 +26,7 @@ namespace ChallengesWithTestsMark8
                     business.Name = "CLOSED";
                 }
             }
+            //businesses.Where(x => x.TotalRevenue == 0).ToList().ForEach(x => x.Name = "CLOSED");
         }
 
         public bool IsAscendingOrder(int[] numbers)
@@ -45,7 +47,7 @@ namespace ChallengesWithTestsMark8
                 numList.Sort();
                 return Enumerable.SequenceEqual(numbers, numList);
             }
-
+            //return (numbers == null || numbers.Length == 0) ? false : !numbers.Skip(1).Select((item, index) => numbers[index] <= numbers[index + 1]).Any(x => x == false);
         }
 
         public int SumElementsThatFollowAnEven(int[] numbers)
@@ -69,11 +71,13 @@ namespace ChallengesWithTestsMark8
                 return 0;
             }
 
+            // return numbers == null ? 0: numbers.Skip(1).Where((item, index) => numbers[index] % 2 == 0).Sum();
+
         }
 
         public string TurnWordsIntoSentence(string[] words)
         {
-            if(words != null && words.Length !=0)
+            if (words != null && words.Length != 0)
             {
                 string sent = "";
                 string sentScrap = "";
@@ -86,18 +90,19 @@ namespace ChallengesWithTestsMark8
 
                     else
                     {
-                        sent += (words[i].Replace(" ","").Trim()) + " ";
+                        sent += (words[i].Replace(" ", "").Trim()) + " ";
                     }
                 }
 
-                return (sent == "") ? "": sent.Replace("  ", " ").Trim() + ".";
+                return (sent == "") ? "" : sent.Replace("  ", " ").Trim() + ".";
             }
 
             else
             {
                 return "";
             }
-            
+
+            //return (words == null || words.Length == 0 || (words.Aggregate((x,y) => x.Trim() + " " + y.Trim()) + ".").Count() == 2) ? "" : words.Aggregate((x,y) => x.Trim() + " " + y.Trim()) + ".";
         }
 
         public double[] GetEveryFourthElement(List<double> elements)
@@ -113,7 +118,7 @@ namespace ChallengesWithTestsMark8
                 
             }
             return everyFourth.ToArray();
-
+            // return elements == null ? new double[0] : elements.Where((item, index) => (index + 1) % 4 == 0).ToArray();
         }
 
         public bool TwoDifferentElementsInArrayCanSumToTargetNumber(int[] nums, int targetNumber)
@@ -135,7 +140,7 @@ namespace ChallengesWithTestsMark8
                 }
             }
             return isTarget;
-           
-        }
+            //return nums.Select((n1, idx) => new { n1, n2 = nums.Take(idx).FirstOrDefault(n2 => n1 + n2 == targetNumber)}).Where(pair => pair.n2 != 0);
     }
+}
 }
